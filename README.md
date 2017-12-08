@@ -1,3 +1,5 @@
+# Running distributable specs using Serverspec and Docker
+
 
 ## JUnit output
 
@@ -11,3 +13,4 @@ https://github.com/sj26/rspec_junit_formatter
 
 ## Other references
 * https://github.com/zuazo/dockerspec#documentation
+* https://www.unixdaemon.net/tools/testing-dockerfiles-with-serverspec/

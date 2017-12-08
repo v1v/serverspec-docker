@@ -2,4 +2,3 @@
 --format RspecJunitFormatter
 --out target/rspec.xml
 --force-color
---backtrace

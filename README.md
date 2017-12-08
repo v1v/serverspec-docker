@@ -19,3 +19,4 @@ https://github.com/sj26/rspec_junit_formatter
 ## TODO
 * Port listening
 * Refactor common functionality and CB products
+* /run/cjt/cjt.pid vs /run/cjt.pid different location and ownership

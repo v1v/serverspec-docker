@@ -1,7 +1,4 @@
-require "docker"
-require "serverspec"
-
-Docker.options = { read_timeout: 600, write_timeout: 600 }
+require 'spec_helper'
 
 describe "Dockerfile" do
     before(:all) do
@@ -21,7 +18,7 @@ describe "Dockerfile" do
 
     describe file('/run/cjt/cjt.pid') do
         it { should be_file }
-        it { should be_owned_by 'cjt' }   ## There is a discrepancy with Fedora!
+        it { should be_owned_by 'cjt' }
     end
 
     # This is the way we can enforce to wait when docker runs and the service is still
@@ -42,10 +39,4 @@ describe "Dockerfile" do
     #describe port(8080) do
     #  it { should be_listening.with('tcp') }
     #end
-
-    def sleep
-        puts 'Wait for jenkins at least 20 seconds'
-        command("sleep 20").stdout
-    end
-
 end

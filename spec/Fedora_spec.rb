@@ -1,5 +1,4 @@
-require "docker"
-require "serverspec"
+require 'spec_helper'
 
 describe "Dockerfile" do
     before(:all) do
@@ -41,10 +40,4 @@ describe "Dockerfile" do
     #describe port(8080) do
     #  it { should be_listening.with('tcp') }
     #end
-
-    def sleep
-        puts 'Wait for jenkins at least 20 seconds'
-        command("sleep 20").stdout
-    end
-
 end

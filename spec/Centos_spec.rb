@@ -1,5 +1,4 @@
-require "docker"
-require "serverspec"
+require 'spec_helper'
 
 describe "Dockerfile" do
     before(:all) do
@@ -36,10 +35,4 @@ describe "Dockerfile" do
         it { should be_file }
         it { should be_owned_by 'cjt' }
     end
-
-    def sleep
-        puts 'Wait for jenkins at least 20 seconds'
-        command("sleep 20").stdout
-    end
-
 end

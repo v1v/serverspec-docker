@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Dockerfile" do
+describe "Dockerfile ./docker/centos" do
     before(:all) do
         @image = Docker::Image.build_from_dir('./docker/centos') do |v|
           if (log = JSON.parse(v)) && log.has_key?("stream")
@@ -34,5 +34,10 @@ describe "Dockerfile" do
     describe file('/var/lib/cjt/secrets/initialAdminPassword') do
         it { should be_file }
         it { should be_owned_by 'cjt' }
+    end
+
+    after(:all) do
+        puts "after all ran centos"
+        ::Specinfra::Backend::Docker.clear
     end
 end

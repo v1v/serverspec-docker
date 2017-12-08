@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "Dockerfile" do
+describe "Dockerfile ./docker/ubuntu" do
     before(:all) do
         @image = Docker::Image.build_from_dir('./docker/ubuntu') do |v|
           if (log = JSON.parse(v)) && log.has_key?("stream")
@@ -39,4 +39,9 @@ describe "Dockerfile" do
     #describe port(8080) do
     #  it { should be_listening.with('tcp') }
     #end
+
+    after(:all) do
+        puts "after all ran ubuntu"
+        ::Specinfra::Backend::Docker.clear
+    end
 end

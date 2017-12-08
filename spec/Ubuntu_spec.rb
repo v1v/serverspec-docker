@@ -23,8 +23,10 @@ describe "Dockerfile ./docker/ubuntu" do
 
     # This is the way we can enforce to wait when docker runs and the service is still
     # preparing the context
-    it 'INFO: Wait for jenkins to be fully up adn running for at least 10 seconds' do
+    it 'INFO: Wait for jenkins to be fully up adn running for at least 20 seconds' do
         sleep
+        debugLog
+        debugVar
     end
     describe file('/var/log/cjt/cjt.log') do
         it { should contain('Jenkins is fully up and running') }

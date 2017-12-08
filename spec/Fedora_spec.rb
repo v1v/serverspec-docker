@@ -26,6 +26,8 @@ describe "Dockerfile ./docker/fedora" do
     # preparing the context
     it 'INFO: Wait for jenkins to be fully up adn running for at least 10 seconds' do
         sleep
+        debugLog
+        debugVar
     end
     describe file('/var/log/cjt/cjt.log') do
         it { should contain('Jenkins is fully up and running') }

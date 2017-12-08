@@ -1,9 +1,10 @@
 # Running distributable specs using Serverspec and Docker
 
+Test Kitchen might help to drive matrix of configuration and tests... although to be reviewed
 
 ## JUnit output
 
-https://github.com/sj26/rspec_junit_formatter
+* https://github.com/sj26/rspec_junit_formatter
 
 ## Docker serverspec container
 
@@ -15,6 +16,7 @@ https://github.com/sj26/rspec_junit_formatter
 * https://github.com/zuazo/dockerspec#documentation
 * https://www.unixdaemon.net/tools/testing-dockerfiles-with-serverspec/
 * https://github.com/swipely/docker-api
+* https://blog.sensuapp.org/writing-sensu-plugin-tests-with-test-kitchen-and-serverspec-b646d2eeee51
 
 ## TODO
 * Port listening

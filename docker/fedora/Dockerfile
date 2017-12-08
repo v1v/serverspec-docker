@@ -13,4 +13,3 @@ RUN dnf -y update && dnf -y install cjt
 EXPOSE 8080
 
 CMD service cjt start && exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
-#CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"

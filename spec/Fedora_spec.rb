@@ -3,7 +3,11 @@ require "serverspec"
 
 describe "Dockerfile" do
     before(:all) do
-        @image = Docker::Image.build_from_dir('./docker/fedora')
+        @image = Docker::Image.build_from_dir('./docker/fedora') do |v|
+          if (log = JSON.parse(v)) && log.has_key?("stream")
+            $stdout.puts log["stream"]
+          end
+        end
         set :os, family: :redhat
         set :backend, :docker
         set :docker_image, @image.id

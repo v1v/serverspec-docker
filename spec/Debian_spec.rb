@@ -1,9 +1,15 @@
 require "docker"
 require "serverspec"
 
+Docker.options = { read_timeout: 600, write_timeout: 600 }
+
 describe "Dockerfile" do
     before(:all) do
-        @image = Docker::Image.build_from_dir('./docker/debian')
+        @image = Docker::Image.build_from_dir('./docker/debian') do |v|
+          if (log = JSON.parse(v)) && log.has_key?("stream")
+            $stdout.puts log["stream"]
+          end
+        end
         set :os, family: :debian
         set :backend, :docker
         set :docker_image, @image.id
@@ -15,6 +21,7 @@ describe "Dockerfile" do
 
     describe file('/run/cjt/cjt.pid') do
         it { should be_file }
+        it { should be_owned_by 'cjt' }   ## There is a discrepancy with Fedora!
     end
 
     # This is the way we can enforce to wait when docker runs and the service is still
@@ -31,6 +38,10 @@ describe "Dockerfile" do
         it { should be_file }
         it { should be_owned_by 'cjt' }
     end
+
+    #describe port(8080) do
+    #  it { should be_listening.with('tcp') }
+    #end
 
     def sleep
         puts 'Wait for jenkins at least 20 seconds'

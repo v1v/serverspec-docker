@@ -14,3 +14,8 @@ https://github.com/sj26/rspec_junit_formatter
 ## Other references
 * https://github.com/zuazo/dockerspec#documentation
 * https://www.unixdaemon.net/tools/testing-dockerfiles-with-serverspec/
+* https://github.com/swipely/docker-api
+
+## TODO
+* Port listening
+* Refactor common functionality and CB products

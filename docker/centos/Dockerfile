@@ -1,7 +1,5 @@
 FROM centos:latest
 
-MAINTAINER Release Team <release-team@cloudbees.com>
-
 RUN yum -y update; yum clean all
 RUN yum -y install wget passwd python java-1.8.0-openjdk initscripts && yum clean all
 

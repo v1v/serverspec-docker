@@ -1,7 +1,5 @@
 FROM ubuntu:latest
 
-MAINTAINER Release Team <release-team@cloudbees.com>
-
 RUN apt-get update && \
     apt-get install -y curl gnupg openjdk-8-jdk apt-utils apt-transport-https
 

@@ -2,6 +2,10 @@
 
 Test Kitchen might help to drive matrix of configuration and tests... although to be reviewed
 
+## How to run
+
+    docker run --rm --name integration-test -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/docker-serverspec -w /docker-serverspec jadametz/serverspec spec
+
 ## JUnit output
 
 * https://github.com/sj26/rspec_junit_formatter

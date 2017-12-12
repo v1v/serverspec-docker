@@ -1,7 +1,5 @@
 FROM fedora:latest
 
-MAINTAINER Release Team <release-team@cloudbees.com>
-
 RUN dnf -y update && dnf -y install openssh-server passwd python yum java-1.8.0-openjdk initscripts && dnf clean all
 
 RUN dnf -y install wget
